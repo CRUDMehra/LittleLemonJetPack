@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Little Lemon</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="let_get_to_know_you">Let\'s get to know you</string>
+    <string name="little_lemon_logo">Little Lemon Logo</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_profile">Profile</string>
 </resources>
