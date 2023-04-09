@@ -4,28 +4,33 @@ import android.util.Log
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
-import io.ktor.client.plugins.logging.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.observer.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
+
 
 class ApiWorker {
 
-    val BASE_URL = "https://raw.githubusercontent.com"
-
     private val client = HttpClient(CIO) {
-
         //Header
         install(DefaultRequest) {
             header("Accept", "application/json")
             header("Content-type", "application/json")
             contentType(ContentType.Application.Json)
-            //Pass your token
-            header("Authorization", "Bearer ${SessionManager.userToken}")
         }
-        /*install(JsonFeature) {
-            serializer = JacksonSerializer()
-        }*/
+
+        install(ContentNegotiation) {
+            json(Json {
+                prettyPrint = true
+                isLenient = true
+                ignoreUnknownKeys = true
+
+            })
+            addDefaultResponseValidation()
+        }
         // Timeout
         install(HttpTimeout) {
             requestTimeoutMillis = 15000L
@@ -34,10 +39,10 @@ class ApiWorker {
         }
 
         //Now you see response logs inside terminal
-        install(Logging) {
+/*        install(Logging) {
             logger = Logger.DEFAULT
             level = LogLevel.HEADERS
-        }
+        }*/
 
         //Print other logs
         install(ResponseObserver) {
@@ -48,7 +53,14 @@ class ApiWorker {
 
     }
 
+
     fun getClient(): HttpClient {
         return client
     }
+
+    companion object {
+        const val BASE_URL = "https://raw.githubusercontent.com"
+    }
+
+
 }

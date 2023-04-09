@@ -2,6 +2,8 @@
 
     <style name="Widget.Theme.LittleLemon.MyView" parent="">
         <item name="android:background">@color/gray_400</item>
-        <item name="exampleColor">@color/light_blue_400</item>
+        <item name="exampleColor">@color/white</item>
+        <item name="fontFamily">@font/karla_regular</item>
+        <item name="android:fontFamily">@font/karla_regular</item>
     </style>
 </resources>

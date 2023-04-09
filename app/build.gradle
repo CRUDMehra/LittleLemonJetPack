@@ -2,11 +2,13 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlinx-serialization'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.crud.littlelemon'
     compileSdk 33
+
     packagingOptions {
         exclude("META-INF/INDEX.LIST")
         exclude("META-INF/DEPENDENCIES")
@@ -67,6 +69,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.compose.material:material:1.4.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -82,17 +85,27 @@ dependencies {
 
 
     // Ktor
-    implementation("io.ktor:ktor-client-apache:$ktor_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-    implementation ("io.ktor:ktor-client-cio:$ktor_version")
-    implementation ("io.ktor:ktor-client-gson:$ktor_version")
-    testImplementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    //Ktor log response
-    implementation ("io.ktor:ktor-client-logging:$ktor_version")
-    implementation ("ch.qos.logback:logback-classic:1.4.6")
+    // Room components
+    implementation "androidx.room:room-runtime:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.1"
+    implementation "androidx.room:room-ktx:2.5.1"
+    androidTestImplementation "androidx.room:room-testing:2.5.1"
+
+
+    // life cycle scope
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+
+
+    // Glide
+    implementation "com.google.accompanist:accompanist-glide:0.10.0"
+
+
 }

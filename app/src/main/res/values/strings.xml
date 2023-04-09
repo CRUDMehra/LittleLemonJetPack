@@ -12,4 +12,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="little_lemon">Little Lemon</string>
+    <string name="chicago">Chicago</string>
+    <string name="description_of_resturant">We are a family owend Moditarenen resturant, focused on traditional recipes served with a modern twist</string>
+    <string name="order_for_delivery">ORDER FOR DELIVERY!</string>
+    <string name="drinks">Drinks</string>
+    <string name="dessersts">Desserts</string>
+    <string name="mains">Mains</string>
+    <string name="starters">Starters</string>
 </resources>

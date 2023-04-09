@@ -4,7 +4,7 @@ sealed class NetworkResponse<out T : Any> {
     /**
      * response with a 2xx status code
      */
-    data class Success<out T : Any>(val data: T) : NetworkResponse<T>()
+    data class Success<out PostResponse : Any>(val data: PostResponse) : NetworkResponse<PostResponse>()
 
     /**
      * response with a non-2xx status code.

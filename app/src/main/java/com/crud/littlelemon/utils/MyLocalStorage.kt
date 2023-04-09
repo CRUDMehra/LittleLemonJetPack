@@ -23,8 +23,8 @@ fun saveBooleanPref(key: String, value: Boolean) {
     getPrefManger()?.edit()?.putBoolean(key, value)?.apply()
 }
 
-fun getBooleanPref(key: String): Boolean? {
-    return getPrefManger()?.getBoolean(key, false)
+fun getBooleanPref(key: String): Boolean {
+    return getPrefManger()?.getBoolean(key, false)!!
 }
 
 
@@ -38,6 +38,9 @@ fun getUserInfoPref(): UserDetailsModel? {
     return Gson().fromJson(userDetails, UserDetailsModel::class.java)
 }
 
+fun clearPrefData() {
+    getPrefManger()?.edit()?.clear()?.commit()
+}
 
 const val IS_LOGGED_USER = "user_logged"
 private const val USER_INFO = "user_info"

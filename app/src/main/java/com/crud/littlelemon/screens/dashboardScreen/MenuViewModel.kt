@@ -11,10 +11,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class HomeViewModel : ViewModel() {
+class MenuViewModel : ViewModel() {
     //region UseCase
     sealed class MenuLiveData {
-        data class ShowMenuItems(val items: MutableList<PostResponse>) : MenuLiveData()
+        data class ShowMenuItems(val items: PostResponse) : MenuLiveData()
         data class Error(val code: Int) : MenuLiveData()
         data class Saved(val isSaved: Boolean) : MenuLiveData()
     }
@@ -33,10 +33,15 @@ class HomeViewModel : ViewModel() {
             ApiRepositories().getMenu()
         }.apply {
             when (this) {
-                is NetworkResponse.Success -> getMenuDataResponse.value =
-                    Event(MenuLiveData.ShowMenuItems(this.data))
-                is NetworkResponse.Error -> getMenuDataResponse.value =
-                    Event(MenuLiveData.Error(this.code))
+                is NetworkResponse.Success -> getMenuDataResponse
+                    .postValue(
+                        Event(MenuLiveData.ShowMenuItems(this.data))
+                    )
+                is NetworkResponse.Error -> getMenuDataResponse
+                    .postValue(
+                        Event(MenuLiveData.Error(this.code))
+                    )
+
             }
         }
 
