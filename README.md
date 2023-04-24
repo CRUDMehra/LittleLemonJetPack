@@ -1,4 +1,4 @@
-<h1>Little Lemon Food Ordering App</h1>
+<h1>Little Lemon Restaurant Food Ordering App</h1>
 
 <ul>
 	<li>The application is a JetPack Compose Android Studio&nbsp;Food app.</li>
