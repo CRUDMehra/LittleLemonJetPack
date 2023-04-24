@@ -1,4 +1,4 @@
-<h1>Little Lemon Restaurant Food Ordering App</h1>
+<h1>Little Lemon Restaurant Food Ordering App with JetPack Compose Kotlin </h1>
 
 <ul>
 	<li>The application is a JetPack Compose and Kotlin Android Studio&nbsp;Food app.</li>
