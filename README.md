@@ -1,7 +1,7 @@
 <h1>Little Lemon Restaurant Food Ordering App</h1>
 
 <ul>
-	<li>The application is a JetPack Compose Android Studio&nbsp;Food app.</li>
+	<li>The application is a JetPack Compose and Kotlin Android Studio&nbsp;Food app.</li>
 	<li>Users will be capable of signing up on the Little Lemon restaurant app.</li>
 	<li>Users will have to go through a registration process.</li>
 	<li>Once they successfully complete that phase, they are redirected to a home screen.</li>
